@@ -20,7 +20,7 @@ const CurrentWeather = ({onClose, city}) => {
     //     )
     // }
     return (
-        <div className='weather h-1/4 absolute top-2/4 left-2/4 translate-x-2/4 translate-y-1/2 leading-6 px-4 py-7 rounded-sm max-w-100 min-w-60 border mb-96 border-black text-black shadow-lg bg-sky-500'>
+        <div className='weather h-1/4 absolute top-2/4 left-2/4 translate-x-2/4 translate-y-1/2 leading-6 px-4 py-7 rounded-sm max-w-100 min-w-60 border mb-96 border-black text-black shadow-lg bg-lime-400 ml-12'>
             {weather && (
                 <div className='top flex justify-between items-center'>
                     <div>

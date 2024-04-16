@@ -34,7 +34,7 @@ const DailyForecast = ({ onClose, city }) => {
 
   return (
     <>
-      <div className='forecast absolute mt-52 border border-black bg-sky-500'>
+      <div className='forecast absolute mr-28 mt-24 border border-black bg-lime-400 shadow-md rounded-sm'>
         <label className='title text-2xl font-semibold'>Daily</label>
         <Accordion allowZeroExpanded>
           {forecast && forecast?.slice(0, 5).map((ft, i) => (
@@ -42,9 +42,9 @@ const DailyForecast = ({ onClose, city }) => {
               <AccordionItemHeading>
                 <AccordionItemButton>
                   <div className='daily-item rounded-br-xl h-10 m-1 items-center cursor-pointer flex text-sm px-1 py-5'>
-                    <img src={`icons/${ft?.weather[0].icon}.png`} className='icon-small w-10' alt='' />
+                    <img src={`icons/${ft?.weather[0]?.icon}.png`} className='icon-small w-10' alt='' />
                     <label className='day cursor-pointer flex-1 font-semibold ml-4'>{forecastDays[i]}</label>
-                    <label className='desc cursor-pointer flex-1 mr-4 text-center'>{ft?.weather?.description}</label>
+                    <label className='desc cursor-pointer flex-1 mr-4 text-center'>{ft?.weather[0]?.description}</label>
                     <label className='min-max text-gray-600'>{Math.round(ft?.main?.temp_max)}°Celsius / {Math.round(ft?.main?.temp_min)}°Celsius</label>
                   </div>
                 </AccordionItemButton>
@@ -79,7 +79,7 @@ const DailyForecast = ({ onClose, city }) => {
           ))}
         </Accordion>
         <div>
-          <button onClick={onClose} type='button'>
+          <button onClick={onClose} type='button' className='button pb-4'>
             Close
           </button>
         </div>

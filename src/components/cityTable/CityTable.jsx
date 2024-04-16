@@ -37,8 +37,8 @@ const CityTable = () => {
     }
 
     return (
-        <div className="align-middle justify-center flex flex-row w-auto content-center mr-auto ">
-            <table className="border  border-spacing-20 ml-20 mr-52 pl-52 pr-60 max-w-32 w-full shadow-md rounded-md">
+        <div className="align-middle justify-center flex flex-row w-auto content-center mr-auto ml-24">
+            <table className="border border-spacing-20 ml-20 mr-52 pl-52 pr-60 max-w-32 w-full shadow-md rounded-md">
                 <thead className='uppercase font-mono'>
                     <tr className='bg-slate-200 border border-solid border-l-0'>
                         <th className=' pl-10'>City</th>
@@ -50,7 +50,7 @@ const CityTable = () => {
                 <tbody>
                     {cities && cities.map((ct) => (
                         <tr key={ct?.name} className=' justify-center border  border-spacing-25'>
-                            <td className='pb-5 pt-5 pl-10  hover:text-pink-400 cursor-pointer' onClick={() => handleClick(ct)}>{ct?.name}</td>
+                            <td className='pb-5 pt-5 pl-10  hover:text-lime-600 cursor-pointer' onClick={() => handleClick(ct)}>{ct?.name}</td>
                             <td className='pb-5 pt-5 pl-20'>{ct?.cou_name_en}</td>
                             <td className='pb-5 pt-5 pl-20'>{ct?.country_code}</td>
                             <td className='pb-5 pt-5'>{ct?.timezone}</td>
