@@ -34,7 +34,7 @@ const DailyForecast = ({ onClose, city }) => {
 
   return (
     <>
-      <div className='forecast absolute mr-28 mt-24 border border-black bg-lime-400 shadow-md rounded-sm'>
+      <div className='forecast absolute mr-28 mt-16 border border-black bg-lime-400 shadow-md rounded-sm'>
         <label className='title text-2xl font-semibold'>Daily</label>
         <Accordion allowZeroExpanded>
           {forecast && forecast?.slice(0, 5).map((ft, i) => (
@@ -45,7 +45,7 @@ const DailyForecast = ({ onClose, city }) => {
                     <img src={`icons/${ft?.weather[0]?.icon}.png`} className='icon-small w-10' alt='' />
                     <label className='day cursor-pointer flex-1 font-semibold ml-4'>{forecastDays[i]}</label>
                     <label className='desc cursor-pointer flex-1 mr-4 text-center'>{ft?.weather[0]?.description}</label>
-                    <label className='min-max text-gray-600'>{Math.round(ft?.main?.temp_max)}°Celsius / {Math.round(ft?.main?.temp_min)}°Celsius</label>
+                    <label className='min-max text-gray-600'>{Math.round(ft?.main?.temp_max)-273}°Celsius / {Math.round(ft?.main?.temp_min)-273}°Celsius</label>
                   </div>
                 </AccordionItemButton>
               </AccordionItemHeading>

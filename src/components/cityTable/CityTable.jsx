@@ -60,7 +60,7 @@ const CityTable = () => {
             </table>
             {showWeatherModal && <CurrentWeather city={selectedCity} onClose={handleCloseWeatherModal} />}
             <br/>
-            {showForecastModal && <DailyForecast city={selectedCity} onClose={handleCloseForecastModal} />}
+            {showForecastModal && <DailyForecast city={selectedCity} onClose={handleCloseForecastModal} className="flex flex-column"/>}
         </div>
     )
 }
