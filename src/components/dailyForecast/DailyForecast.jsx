@@ -9,7 +9,7 @@ const DailyForecast = ({ onClose, city }) => {
 
   useEffect(() => {
 
-    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city?.name}&appid=f13313911c17750a1f0ac321f0fb6ae2&limit=100`
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city?.name}&appid=f13313911c17750a1f0ac321f0fb6ae2`
 
     const fetchApi = async () => {
       try {
@@ -34,53 +34,55 @@ const DailyForecast = ({ onClose, city }) => {
 
   return (
     <>
-      <label className='title text-2xl font-semibold'>Daily</label>
-      {<Accordion allowZeroExpanded>
-        {forecast && forecast?.slice(0, 5).map((ft, i) => (
-          <AccordionItem key={i}>
-            <AccordionItemHeading>
+      <div className='forecast absolute mt-52 border border-black bg-sky-500'>
+        <label className='title text-2xl font-semibold'>Daily</label>
+        <Accordion allowZeroExpanded>
+          {forecast && forecast?.slice(0, 5).map((ft, i) => (
+            <AccordionItem key={i}>
+              <AccordionItemHeading>
+                <AccordionItemButton>
+                  <div className='daily-item rounded-br-xl h-10 m-1 items-center cursor-pointer flex text-sm px-1 py-5'>
+                    <img src={`icons/${ft?.weather[0].icon}.png`} className='icon-small w-10' alt='' />
+                    <label className='day cursor-pointer flex-1 font-semibold ml-4'>{forecastDays[i]}</label>
+                    <label className='desc cursor-pointer flex-1 mr-4 text-center'>{ft?.weather?.description}</label>
+                    <label className='min-max text-gray-600'>{Math.round(ft?.main?.temp_max)}°Celsius / {Math.round(ft?.main?.temp_min)}°Celsius</label>
+                  </div>
+                </AccordionItemButton>
+              </AccordionItemHeading>
               <AccordionItemButton>
-                <div className='daily-item rounded-br-xl h-10 m-1 items-center cursor-pointer flex text-sm px-1 py-5'>
-                  <img src={`icons/${ft?.weather[0].icon}.png`} className='icon-small w-10' alt='' />
-                  <label className='day cursor-pointer flex-1 font-semibold ml-4'>{forecastDays[i]}</label>
-                  <label className='desc cursor-pointer flex-1 mr-4 text-center'>{ft?.weather?.description}</label>
-                  <label className='min-max text-gray-400'>{Math.round(ft?.main?.temp_max)}°Celsius / {Math.round(ft?.main?.temp_min)}°Celsius</label>
+                <div className='daily-details-grid gap-y-0 gap-x-3.5 grid flex-1 auto-cols-auto px-1 py-4'>
+                  <div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                    <label className='fd first: text-gray-600'>Pressure: </label>
+                    <label className='fd'>{ft?.main?.pressure} hPa</label>
+                  </div>
+                  <div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                    <label className='fd first: text-gray-600'>Humidity: </label>
+                    <label className='fd'>{ft?.main?.humidity} %</label>
+                  </div>
+                  <div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                    <label className='fd first: text-gray-600'>Clouds: </label>
+                    <label className='fd'>{ft?.clouds?.all}</label>
+                  </div>
+                  <div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                    <label className='fd first: text-gray-600'>Sea-Level: </label>
+                    <label className='fd'>{ft?.main?.sea_level} m above sea-level</label>
+                  </div><div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                    <label className='fd first: text-gray-600'>Wind-Speed: </label>
+                    <label className='fd'>{ft?.wind?.speed} km/h</label>
+                  </div><div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                    <label className='fd first: text-gray-600'>Feels-Like:</label>
+                    <label className='fd'>{ft?.main?.feels_like} °C</label>
+                  </div>
                 </div>
               </AccordionItemButton>
-            </AccordionItemHeading>
-            <AccordionItemButton>
-              <div className='daily-details-grid gap-y-0 gap-x-3.5 grid flex-1 auto-cols-auto px-1 py-4'>
-                <div className='daily-details-grid-item items-center flex h-8 justify-between'>
-                  <label className='fd first: text-gray-400'>Pressure: </label>
-                  <label className='fd'>{ft?.main?.pressure} hPa</label>
-                </div>
-                <div className='daily-details-grid-item items-center flex h-8 justify-between'>
-                  <label className='fd first: text-gray-400'>Humidity: </label>
-                  <label className='fd'>{ft?.main?.humidity} %</label>
-                </div>
-                <div className='daily-details-grid-item items-center flex h-8 justify-between'>
-                  <label className='fd first: text-gray-400'>Clouds: </label>
-                  <label className='fd'>{ft?.clouds?.all}</label>
-                </div>
-                <div className='daily-details-grid-item items-center flex h-8 justify-between'>
-                  <label className='fd first: text-gray-400'>Sea-Level: </label>
-                  <label className='fd'>{ft?.main?.sea_level} m above sea-level</label>
-                </div><div className='daily-details-grid-item items-center flex h-8 justify-between'>
-                  <label className='fd first: text-gray-400'>Wind-Speed: </label>
-                  <label className='fd'>{ft?.wind?.speed} km/h</label>
-                </div><div className='daily-details-grid-item items-center flex h-8 justify-between'>
-                  <label className='fd first: text-gray-400'>Feels-Like:</label>
-                  <label className='fd'>{ft?.main?.feels_like} °C</label>
-                </div>
-              </div>
-            </AccordionItemButton>
-          </AccordionItem>
-        ))}
-      </Accordion>}
-      <div>
-        <button onClick={onClose} type='button'>
-          Close
-        </button>
+            </AccordionItem>
+          ))}
+        </Accordion>
+        <div>
+          <button onClick={onClose} type='button'>
+            Close
+          </button>
+        </div>
       </div>
     </>
   )
