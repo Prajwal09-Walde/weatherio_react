@@ -34,22 +34,22 @@ const DailyForecast = ({ onClose, city }) => {
 
   return (
     <>
-      <label className='title text-2xl font-semibold text-white'>Daily</label>
+      <label className='title text-2xl font-semibold'>Daily</label>
       {<Accordion allowZeroExpanded>
         {forecast && forecast?.slice(0, 5).map((ft, i) => (
           <AccordionItem key={i}>
             <AccordionItemHeading>
               <AccordionItemButton>
                 <div className='daily-item rounded-br-xl h-10 m-1 items-center cursor-pointer flex text-sm px-1 py-5'>
-                  <img src={`icons/${ft?.weather[0].icon}.png`} className='icon-small' alt='' />
+                  <img src={`icons/${ft?.weather[0].icon}.png`} className='icon-small w-10' alt='' />
                   <label className='day cursor-pointer flex-1 font-semibold ml-4'>{forecastDays[i]}</label>
                   <label className='desc cursor-pointer flex-1 mr-4 text-center'>{ft?.weather?.description}</label>
-                  <label className='min-max'>{Math.round(ft?.main?.temp_max)}°Celsius / {Math.round(ft?.main?.temp_min)}°Celsius</label>
+                  <label className='min-max text-gray-400'>{Math.round(ft?.main?.temp_max)}°Celsius / {Math.round(ft?.main?.temp_min)}°Celsius</label>
                 </div>
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemButton>
-              <div className='daily-details-grid'>
+              <div className='daily-details-grid gap-y-0 gap-x-3.5 '>
                 <div className='daily-details-grid-item'>
                   <label>Pressure: </label>
                   <label>{ft?.main?.pressure} hPa</label>
