@@ -59,6 +59,7 @@ const CityTable = () => {
                 </tbody>
             </table>
             {showWeatherModal && <CurrentWeather city={selectedCity} onClose={handleCloseWeatherModal} />}
+            <br/>
             {showForecastModal && <DailyForecast city={selectedCity} onClose={handleCloseForecastModal} />}
         </div>
     )

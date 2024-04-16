@@ -49,28 +49,28 @@ const DailyForecast = ({ onClose, city }) => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemButton>
-              <div className='daily-details-grid gap-y-0 gap-x-3.5 '>
-                <div className='daily-details-grid-item'>
-                  <label>Pressure: </label>
-                  <label>{ft?.main?.pressure} hPa</label>
+              <div className='daily-details-grid gap-y-0 gap-x-3.5 grid flex-1 auto-cols-auto px-1 py-4'>
+                <div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                  <label className='fd first: text-gray-400'>Pressure: </label>
+                  <label className='fd'>{ft?.main?.pressure} hPa</label>
                 </div>
-                <div className='daily-details-grid-item'>
-                  <label>Humidity: </label>
-                  <label>{ft?.main?.humidity} %</label>
+                <div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                  <label className='fd first: text-gray-400'>Humidity: </label>
+                  <label className='fd'>{ft?.main?.humidity} %</label>
                 </div>
-                <div className='daily-details-grid-item'>
-                  <label>Clouds: </label>
-                  <label>{ft?.clouds?.all}</label>
+                <div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                  <label className='fd first: text-gray-400'>Clouds: </label>
+                  <label className='fd'>{ft?.clouds?.all}</label>
                 </div>
-                <div className='daily-details-grid-item'>
-                  <label>Sea-Level: </label>
-                  <label>{ft?.main?.sea_level} m above sea-level</label>
-                </div><div className='daily-details-grid-item'>
-                  <label>Wind-Speed: </label>
-                  <label>{ft?.wind?.speed} km/h</label>
-                </div><div className='daily-details-grid-item'>
-                  <label>Feels-Like:</label>
-                  <label>{ft?.main?.feels_like} °C</label>
+                <div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                  <label className='fd first: text-gray-400'>Sea-Level: </label>
+                  <label className='fd'>{ft?.main?.sea_level} m above sea-level</label>
+                </div><div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                  <label className='fd first: text-gray-400'>Wind-Speed: </label>
+                  <label className='fd'>{ft?.wind?.speed} km/h</label>
+                </div><div className='daily-details-grid-item items-center flex h-8 justify-between'>
+                  <label className='fd first: text-gray-400'>Feels-Like:</label>
+                  <label className='fd'>{ft?.main?.feels_like} °C</label>
                 </div>
               </div>
             </AccordionItemButton>
