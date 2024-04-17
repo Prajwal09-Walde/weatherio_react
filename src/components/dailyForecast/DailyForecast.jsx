@@ -1,10 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemButton,
-  AccordionItemHeading,
-} from "react-accessible-accordion";
 import CurrentWeather from "../CurrentWeather/CurrentWeather";
 
 const weekDays = [
